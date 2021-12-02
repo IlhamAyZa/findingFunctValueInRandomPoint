@@ -7,7 +7,7 @@ import java.util.Random;
 public class FindFunctValue {
 
     private static ArrayList<Double> functCoef = new ArrayList<>();
-    private static ArrayList<double[]> listOfPoints = new ArrayList<>();
+    private static double[][] listOfPoints;
     private static Random rand = new Random();
     private static Scanner scn = new Scanner(System.in);
     private static int n, m, maxX, minX;
@@ -33,7 +33,7 @@ public class FindFunctValue {
 
         System.out.println("VALUES: ");
         for (int i = 0; i < m; i++) {
-            giveValueOfFunct(listOfPoints.get(i));
+            giveValueOfFunct(listOfPoints[i]);
             System.out.println("");
         }
 
@@ -54,7 +54,7 @@ public class FindFunctValue {
             for (int i = 0; i < n; i++) {
                 point[i] = minX + (maxX - minX) * rand.nextDouble();
             }
-            listOfPoints.add(point);
+            listOfPoints[j] = point;
         }
     }
 
