@@ -32,8 +32,9 @@ public class FindFunctValue {
         createPoints();
 
         System.out.println("VALUES: ");
-        for (int i = 0; i < listOfPoints.size(); i++) {
+        for (int i = 0; i < m; i++) {
             giveValueOfFunct(listOfPoints.get(i));
+            System.out.println("");
         }
 
     }
@@ -49,10 +50,12 @@ public class FindFunctValue {
 
     private static void createPoints() {
         double[] point = new double[n];
-        for (int i = 0; i < n; i++) {
-            point[i] = minX + (maxX - minX) * rand.nextDouble();
+        for (int j = 0; j < m; j++){
+            for (int i = 0; i < n; i++) {
+                point[i] = minX + (maxX - minX) * rand.nextDouble();
+            }
+            listOfPoints.add(point);
         }
-        listOfPoints.add(point);
     }
 
     private static void giveValueOfFunct(double[] point) {
