@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 
-public class FindFunctValue {
+public class FindFunctValue implements FunctionVBP {
 
-    private static ArrayList<Double> functCoef = new ArrayList<>();
-    private static double[][] listOfPoints;
-    private static Random rand = new Random();
-    private static Scanner scn = new Scanner(System.in);
-    private static int n, m, maxX, minX;
+    private ArrayList<Double> functCoef = new ArrayList<>();
+    private double[][] listOfPoints;
+    private Random rand = new Random();
+    private Scanner scn = new Scanner(System.in);
+    private int n, m, maxX, minX;
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         System.out.print("Enter n : ");
         n = scn.nextInt();
         System.out.println("");
@@ -39,7 +39,7 @@ public class FindFunctValue {
 
     }
 
-    public static void createFunction(int n) {
+    public void createFunction(int n) {
         System.out.println("Creating function...");
         for (int i = 1; i <= n; i++) {
             System.out.print(i + " : ");
@@ -48,7 +48,7 @@ public class FindFunctValue {
         }
     }
 
-    private static void createPoints() {
+    private void createPoints() {
         double[] point = new double[n];
         for (int j = 0; j < m; j++){
             for (int i = 0; i < n; i++) {
@@ -58,7 +58,8 @@ public class FindFunctValue {
         }
     }
 
-    private static void giveValueOfFunct(double[] point) {
+    @Override
+    public void giveValueOfFunct(double[] point) {
         double value = 0;
         
         for (int i = 0; i < n; i++) {
